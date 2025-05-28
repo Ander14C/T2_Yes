@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,54 +16,66 @@ namespace Biblio
         {
             Console.WriteLine("Ingrese el monto a retirar: ");
             int r = int.Parse(Console.ReadLine());
-            if (r <= 500)
+            if (r >= 0)
             {
-                if (c >= 0)
+                if (r <= 500)
                 {
-                    Console.WriteLine("Realizando operación. Espere un momento...");
-                    Console.WriteLine("Su retiro ha sido realizado con éxito");
-                    Console.WriteLine("Retiro con comisión de S/ 8.00: " + c);
+                    c = monto - (r + 8);
+                    if (c >= 0)
+                    {
+                        Console.WriteLine("Realizando operación. Espere un momento...");
+                        Console.WriteLine("Su retiro ha sido realizado con éxito");
+                        Console.WriteLine("Retiro con comisión de S/ 8.00: " + c);
+                        monto = c;
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Monto insuficiente");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Monto insuficiente");
+                    Console.WriteLine("La operación no puede ser mayor a S/500");
+                    Console.WriteLine();
                 }
-                monto = c;
             }
             else
             {
-                Console.WriteLine("La operación no puede ser mayor a S/500");
-            }
-            if (r < 0)
-            {
-                Console.WriteLine("El monto ingresado no es valido");
-            }
-            else
-            {
-                c = monto - (r + 8);
-                Console.WriteLine("Realizando operación. Espere un momento...");
-                Console.WriteLine("Su retiro ha sido realizado con éxito");
-                Console.WriteLine("Retiro con comisión de S/ 8.00: " + c);
+                Console.WriteLine("No se puede realizar la operación solicitada");
             }
         }
         public void saldo()
         {
             Console.WriteLine("El monto actual es:" + monto);
+            Console.WriteLine();
         }
+
         public void deposito()
         {
-            Console.WriteLine("Ingrese el monto a depositar (Costo de la comision S/.2)");
+            Console.WriteLine("Ingrese el monto a depositar: ");
             d = int.Parse(Console.ReadLine());
-
-            if (d <= 1000)
+            Console.WriteLine();
+            if (d >= 0)
             {
-                a = monto + (d - 2);
-                Console.WriteLine("Se ha depositado: " + d + " menos 2 soles de comisión");
-                Console.WriteLine("El monto actual es: " + a);
+                if (d <= 1000)
+                {
+                    a = monto + (d - 2);
+                    Console.WriteLine("Realizando operación. Espere un momento...");
+                    Console.WriteLine("Su retiro ha sido realizado con éxito");
+                    Console.WriteLine("Retiro con comisión de S/ 2.00: " + a);
+                    Console.WriteLine();
+                    monto = a;
+                }
+                else
+                {
+                    Console.WriteLine("La operación no puede ser mayor a S/1000");
+                    Console.WriteLine();
+                }
             }
             else
             {
-                Console.WriteLine("La operación no puede ser mayor a S/1000");
+                Console.WriteLine("No se puede realizar la operación solicitada");
             }
         }
     }

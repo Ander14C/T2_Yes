@@ -17,7 +17,7 @@ namespace T2_Yes
             int opcion;
             do
             {
-                Console.Clear(); //Limpia los valores de la consola
+               
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("--- MENU CAJERO AUTOMÁTICO ---");
                 Console.ForegroundColor = ConsoleColor.Magenta;
@@ -31,44 +31,17 @@ namespace T2_Yes
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write("Seleccione una opción: ");
                 opcion = int.Parse(Console.ReadLine());
-                opcion = int.Parse(Console.ReadLine());
-
-
 
                 switch (opcion)
-
-
-
                 {
-
-
-
                     case 0:
-
-
-
-                        Console.WriteLine("saliendo....");
-
-
-
+                        Console.WriteLine("saliendo...");
+                        Console.WriteLine("¡Hasta pronto!");
                         break;
-
-
-
                     case 1:
-
-
-
-                        Cajero.retiro(); ;
-
-
-
+                        Cajero.retiro();
                         break;
-
-
-
                     case 2:
-
                         Cajero.saldo();
                         break;
                     case 3:
