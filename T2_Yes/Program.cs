@@ -23,9 +23,9 @@ namespace T2_Yes
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("1. Retirar");
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("2. Depositar");
+                Console.WriteLine("2. Consultar saldo");
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("3. Consultar Saldo");
+                Console.WriteLine("3. Depositar");
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("4. Salir");
                 Console.ForegroundColor = ConsoleColor.Cyan;
